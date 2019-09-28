@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React, { useState, useEffect, Fragment } from "react";
-import axios from "axios";
-=======
+
 import React, { useState, useEffect, Fragment, SyntheticEvent } from "react";
->>>>>>> 5d064103861cc2582c2c751404d8d2ecc9a24ada
 import { Container } from "semantic-ui-react";
 import { IActivity } from "./../models/activity";
 import NavBar from "../../features/nav/NavBar";
