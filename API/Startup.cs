@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence;
+using Domain;
+using Microsoft.AspNetCore.Identity;
 
 namespace API
 {
@@ -44,6 +46,12 @@ namespace API
             services.AddMvc()
             .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Create>())
             .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            var builder = services.AddIdentityCore<AppUser>();
+
+            var identityBuilder = new IdentityBuilder(builder.UserType,builder.Services);
+            identityBuilder.AddEntityFrameworkStores<DataContext>();
+            identityBuilder.AddSignInManager<SignInManager<AppUser>>();
 
         }
 
